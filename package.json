@@ -1,0 +1,55 @@
+{
+  "name": "sortmeplugin",
+  "displayName": "SortMe plugin",
+  "description": "Run sortme test-cases directly in vscode",
+  "version": "0.0.1",
+  "engines": {
+    "vscode": "^1.95.0"
+  },
+  "categories": [
+    "Other"
+  ],
+  "activationEvents": [],
+  "main": "./extension.js",
+  "contributes": {
+    "configuration": {
+      "title": "SortMe",
+      "properties": {
+        "sortme.token": {
+          "type": "string",
+          "default": "",
+          "description": "Token for SortMe API"
+        },
+        "sortme.cpp.compile_command": {
+          "type": "string",
+          "default": "clang++ -Wall -Wextra -std=c++23 -o out",
+          "description": "Command to compile C++ binary"
+        }
+      }
+    },
+    "commands": [
+      {
+        "command": "inverterplugin.sortme_run",
+        "title": "Run task from SortMe"
+      }
+    ]
+  },
+  "scripts": {
+    "lint": "eslint .",
+    "pretest": "npm run lint",
+    "test": "vscode-test"
+  },
+  "devDependencies": {
+    "@types/mocha": "^10.0.9",
+    "@types/node": "20.x",
+    "@types/vscode": "^1.95.0",
+    "@vscode/test-cli": "^0.0.10",
+    "@vscode/test-electron": "^2.4.1",
+    "eslint": "^9.13.0"
+  },
+  "dependencies": {
+    "axios": "^1.7.9",
+    "cyrillic-to-translit-js": "^3.2.1",
+    "katex": "^0.16.15"
+  }
+}
